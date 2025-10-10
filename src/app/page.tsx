@@ -1,103 +1,183 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
-export default function Home() {
+
+import {
+  Sparkles,
+  Zap,
+  FileCheck,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
+// import heroDashboard from "@/assets/hero-dashboard.png";
+import Link from "next/link";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+
+export default function Landing() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-background">
+      <Navbar />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/50 border border-border">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-foreground">
+                AI-Powered Technical Planning
+              </span>
+            </div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground max-w-4xl mx-auto leading-tight">
+              Turn your SaaS idea into a{" "}
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                build-ready roadmap
+              </span>
+            </h1>
+
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Non-technical founders, meet your AI technical advisor. Get
+              detailed roadmaps, tech stack recommendations, and timeline
+              estimates — in minutes.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <Link href="/signup">
+                <Button variant="hero" size="lg" className="w-full sm:w-auto">
+                  Try Free
+                  <ArrowRight className="ml-2" />
+                </Button>
+              </Link>
+              <Link href="#how-it-works">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
+                  See How It Works
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Hero Image */}
+          <div className="mt-16 relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl -z-10" />
+            {/* <img
+              src={heroDashboard}
+              alt="SaaSWay Dashboard Interface"
+              className="rounded-2xl shadow-2xl border border-border w-full"
+            /> */}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* How It Works */}
+      <section
+        id="how-it-works"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-accent/30"
+      >
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              How It Works
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Three simple steps to your technical roadmap
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8 bg-card border-border hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-primary/50 flex items-center justify-center mb-6">
+                <Sparkles className="w-6 h-6 text-primary-foreground" />
+              </div>
+              <h3 className="text-2xl font-semibold text-foreground mb-3">
+                1. Describe Your Idea
+              </h3>
+              <p className="text-muted-foreground">
+                Tell us about your SaaS vision in plain English. No technical
+                jargon needed.
+              </p>
+            </Card>
+
+            <Card className="p-8 bg-card border-border hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-secondary to-secondary/50 flex items-center justify-center mb-6">
+                <Zap className="w-6 h-6 text-primary-foreground" />
+              </div>
+              <h3 className="text-2xl font-semibold text-foreground mb-3">
+                2. Get AI Roadmap
+              </h3>
+              <p className="text-muted-foreground">
+                Our AI analyzes your idea and generates a comprehensive
+                technical roadmap instantly.
+              </p>
+            </Card>
+
+            <Card className="p-8 bg-card border-border hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-6">
+                <FileCheck className="w-6 h-6 text-primary-foreground" />
+              </div>
+              <h3 className="text-2xl font-semibold text-foreground mb-3">
+                3. Share or Build
+              </h3>
+              <p className="text-muted-foreground">
+                Export your roadmap as PDF or share with your development team
+                to start building.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-4xl">
+          <Card className="p-8 md:p-12 bg-gradient-to-br from-card to-accent/20 border-border">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
+              What You'll Get
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                "Detailed feature breakdown",
+                "Tech stack recommendations",
+                "Timeline estimates",
+                "Technical risk assessment",
+                "Development milestones",
+                "Resource requirements",
+              ].map((feature, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                  <span className="text-foreground">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary/10 to-secondary/10">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Ready to turn your idea into reality?
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8">
+            Join hundreds of founders who've transformed their ideas into
+            actionable roadmaps.
+          </p>
+          <Link href="/signup">
+            <Button variant="hero" size="lg">
+              Start For Free
+              <ArrowRight className="ml-2" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
