@@ -36,10 +36,10 @@ SaaSWayz replaces expensive ($500-$2,500) and time-consuming (1-2 weeks) strateg
 
 ## Documentation
 
-📄 **[Product Requirements Document (PRD)](./docs/PRD.md)**  
+📄 **[Product Requirements Document (PRD)](./PRD.md)**  
 Complete product strategy, problem definition, success metrics, and user flows.
 
-🛠️ **[Technical Proposal](./docs/Technical-Proposal.md)**  
+🛠️ **[Technical Proposal](./Technical-Proposal.md)**  
 Architecture, data model, implementation phases, and technical risk analysis.
 
 ---
@@ -48,7 +48,7 @@ Architecture, data model, implementation phases, and technical risk analysis.
 
 ```bash
 # Clone the repository
-git clone https://github.com/mhaqnegahdar/saaswayz.git
+git clone https://github.com/mhaqnegahdar/saasway.git
 cd saaswayz
 
 # Install dependencies
@@ -78,6 +78,7 @@ Visit `http://localhost:3000`
   /server              # tRPC routers, services, DB schema
   /lib                 # Shared utilities
   /types               # TypeScript types
+  /modules
 ```
 
 ---
