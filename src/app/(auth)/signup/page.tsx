@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import { Linkedin } from "lucide-react";
-import SVGLogo from "@/components/layout/logo/logo";
+import SVGLogo from "@/components/layout/logo";
 
 const Signup = () => {
   const handleSubmit = (e: React.FormEvent) => {

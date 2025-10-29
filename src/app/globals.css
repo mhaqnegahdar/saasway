@@ -41,10 +41,10 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* Border radius */
-  --radius-sm: calc(var(--radius) - 4px);
+  /* --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 4px); */
 
   /* Animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;

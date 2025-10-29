@@ -28,7 +28,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import SVGLogo from "./layout/logo/logo";
+import SVGLogo from "./layout/logo";
 
 const data = {
   user: {
@@ -37,12 +37,11 @@ const data = {
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
-        {
+    {
       title: "Home",
       url: "/dashboard",
       icon: Home,
       isActive: true,
-  
     },
     // {
     //   title: "Playground",
@@ -64,7 +63,6 @@ const data = {
     //     },
     //   ],
     // },
-  
   ],
   navSecondary: [
     {
@@ -106,7 +104,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
                 <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <SVGLogo/>
+                  <SVGLogo />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">SaaSWayz</span>

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
-import SVGLogo from "@/components/layout/logo/logo";
+import SVGLogo from "@/components/layout/logo";
 import { Linkedin } from "lucide-react";
 
 const Login = () => {
@@ -22,7 +22,7 @@ const Login = () => {
           <div className="space-y-2 text-center">
             <div className="flex justify-center mb-4">
               <div className="size-12">
-                <SVGLogo/>
+                <SVGLogo />
               </div>
             </div>
             <h1 className="text-3xl font-bold">Welcome back</h1>
