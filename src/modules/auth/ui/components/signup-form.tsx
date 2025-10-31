@@ -8,11 +8,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 // Components
-import { Button } from "@/components/ui/button";
+
 import { Card } from "@/components/ui/card";
 import SVGLogo from "@/components/layout/logo";
 import { RHFormContainer } from "@/components/form/ui/components/rhf-form-container";
 import { RHFInput } from "@/components/form/ui/components/rhf-input";
+import SocialLogin from "@/modules/auth/ui/components/social-login";
 
 // Utils
 import { authClient } from "@/lib/auth/auth-client";
@@ -20,23 +21,22 @@ import { authClient } from "@/lib/auth/auth-client";
 // Schema
 import { SignupFormData, signupSchema } from "@/modules/auth/schema";
 
-// Icons
-import { IconBrandGoogle } from "@tabler/icons-react";
-import { Linkedin } from "lucide-react";
+// Types
+import { SocialLoading, SubmitStatus } from "@/modules/auth/types";
 
 export default function SignupForm() {
   const router = useRouter();
 
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: "success" | "error" | "pending" | null;
-    message: string;
-  }>({ type: null, message: "" });
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>({
+    type: null,
+    message: "",
+  });
 
   // Track social login loading states
-  const [socialLoading, setSocialLoading] = useState<{
-    linkedin: boolean;
-    google: boolean;
-  }>({ linkedin: false, google: false });
+  const [socialLoading, setSocialLoading] = useState<SocialLoading>({
+    linkedin: false,
+    google: false,
+  });
 
   const form = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
@@ -80,39 +80,6 @@ export default function SignupForm() {
     }
   };
 
-  const handleSocialLogin = async (provider: "linkedin" | "google") => {
-    try {
-      setSocialLoading((prev) => ({ ...prev, [provider]: true }));
-      setSubmitStatus({
-        type: "pending",
-        message: `signing up with ${provider}...`,
-      });
-
-      const result = await authClient.signIn.social({
-        provider: provider,
-        callbackURL: "/dashboard", // Redirect URL after successful login
-      });
-
-      if (result.error) {
-        throw new Error(
-          result.error.message || `Failed to sign up with ${provider}`
-        );
-      }
-    } catch (error) {
-      console.error(`${provider} logup error:`, error);
-
-      setSubmitStatus({
-        type: "error",
-        message:
-          error instanceof Error
-            ? error.message
-            : `Failed to sign up with ${provider}. Please try again.`,
-      });
-    } finally {
-      setSocialLoading((prev) => ({ ...prev, [provider]: false }));
-    }
-  };
-
   return (
     <div className="flex-1 flex items-center justify-center p-8">
       <Card className="w-full max-w-md p-8 space-y-8">
@@ -143,7 +110,7 @@ export default function SignupForm() {
                 name="name"
                 control={form.control}
                 type="text"
-                label="Name"
+                label="Full name"
                 placeholder="john Doe"
                 disabled={isAnyLoading}
               />
@@ -186,36 +153,12 @@ export default function SignupForm() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <Button
-            variant="outline"
-            type="button"
-            className="grow"
-            onClick={() => handleSocialLogin("google")}
-            disabled={isAnyLoading}
-          >
-            {socialLoading.google ? (
-              <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-            ) : (
-              <IconBrandGoogle />
-            )}
-            Google
-          </Button>
-          <Button
-            variant="outline"
-            type="button"
-            className="grow"
-            onClick={() => handleSocialLogin("linkedin")}
-            disabled={isAnyLoading}
-          >
-            {socialLoading.linkedin ? (
-              <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-            ) : (
-              <Linkedin />
-            )}
-            LinkedIn
-          </Button>
-        </div>
+        <SocialLogin
+          socialLoading={socialLoading}
+          setSocialLoading={setSocialLoading}
+          setSubmitStatus={setSubmitStatus}
+          isAnyLoading={isAnyLoading}
+        />
 
         <p className="text-center text-sm text-muted-foreground">
           Already have an account?{" "}

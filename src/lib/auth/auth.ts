@@ -15,8 +15,8 @@ export const auth = betterAuth({
   },
   socialProviders: {
     linkedin: {
-      clientId: process.env.GITHUB_CLIENT_ID as string,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+      clientId: process.env.LINKEDIN_CLIENT_ID as string,
+      clientSecret: process.env.LINKEDIN_CLIENT_SECRET as string,
     },
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID as string,

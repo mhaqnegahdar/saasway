@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import InnerProviders from "@/components/providers/inner-providers";
+import OuterProviders from "@/components/providers/outer-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,24 +14,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en ">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable}  antialiased`}
       >
-        {children}
+        <OuterProviders>
+          <>{children}</>
+          <InnerProviders />
+        </OuterProviders>
       </body>
     </html>
   );
 }
-
 
 export const metadata: Metadata = {
   title: "AI Clarity & Strategy Calls for SaaS Founders | SaaSWayz",
