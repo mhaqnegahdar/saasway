@@ -139,3 +139,182 @@ Questions or feedback? Open an issue or reach out directly.
 ---
 
 **Built for founders who want clarity, not confusion.**
+
+```
+saaswayz
+├─ PRD.md
+├─ README.md
+├─ Technical-Proposal.md
+├─ bun.lock
+├─ components.json
+├─ drizzle
+│  ├─ 0000_burly_groot.sql
+│  └─ meta
+│     ├─ 0000_snapshot.json
+│     └─ _journal.json
+├─ drizzle.config.ts
+├─ eslint.config.mjs
+├─ next.config.ts
+├─ package.json
+├─ postcss.config.mjs
+├─ public
+│  ├─ hero-illustration.jpg
+│  └─ logo.svg
+├─ src
+│  ├─ app
+│  │  ├─ (auth)
+│  │  │  ├─ login
+│  │  │  │  └─ page.tsx
+│  │  │  └─ signup
+│  │  │     └─ page.tsx
+│  │  ├─ (dashboard)
+│  │  │  ├─ call
+│  │  │  │  └─ [id]
+│  │  │  │     ├─ live
+│  │  │  │     │  └─ page.tsx
+│  │  │  │     └─ page.tsx
+│  │  │  ├─ dashboard
+│  │  │  │  └─ page.tsx
+│  │  │  ├─ layout.tsx
+│  │  │  └─ project
+│  │  │     └─ [id]
+│  │  │        └─ page.tsx
+│  │  ├─ api
+│  │  │  └─ auth
+│  │  │     └─ [...all]
+│  │  │        └─ route.ts
+│  │  ├─ favicon.ico
+│  │  ├─ globals.css
+│  │  ├─ layout.tsx
+│  │  └─ page.tsx
+│  ├─ components
+│  │  ├─ app-sidebar.tsx
+│  │  ├─ form
+│  │  │  ├─ lib
+│  │  │  │  └─ types.ts
+│  │  │  └─ ui
+│  │  │     └─ components
+│  │  │        ├─ inputs
+│  │  │        │  ├─ combobox-input.tsx
+│  │  │        │  ├─ date-input.tsx
+│  │  │        │  └─ multiselect-input.tsx
+│  │  │        ├─ rhf-form-container.tsx
+│  │  │        └─ rhf-input.tsx
+│  │  ├─ layout
+│  │  │  └─ logo
+│  │  │     └─ index.tsx
+│  │  ├─ nav-main.tsx
+│  │  ├─ nav-projects.tsx
+│  │  ├─ nav-secondary.tsx
+│  │  ├─ nav-user.tsx
+│  │  ├─ providers
+│  │  │  ├─ inner-providers.tsx
+│  │  │  ├─ outer-provider.tsx
+│  │  │  └─ theme-provider.tsx
+│  │  └─ ui
+│  │     ├─ accordion.tsx
+│  │     ├─ alert-dialog.tsx
+│  │     ├─ alert.tsx
+│  │     ├─ aspect-ratio.tsx
+│  │     ├─ avatar.tsx
+│  │     ├─ badge.tsx
+│  │     ├─ breadcrumb.tsx
+│  │     ├─ button-group.tsx
+│  │     ├─ button.tsx
+│  │     ├─ calendar.tsx
+│  │     ├─ card.tsx
+│  │     ├─ carousel.tsx
+│  │     ├─ chart.tsx
+│  │     ├─ checkbox.tsx
+│  │     ├─ collapsible.tsx
+│  │     ├─ command.tsx
+│  │     ├─ context-menu.tsx
+│  │     ├─ dialog.tsx
+│  │     ├─ drawer.tsx
+│  │     ├─ dropdown-menu.tsx
+│  │     ├─ empty.tsx
+│  │     ├─ field.tsx
+│  │     ├─ form.tsx
+│  │     ├─ hover-card.tsx
+│  │     ├─ input-group.tsx
+│  │     ├─ input-otp.tsx
+│  │     ├─ input.tsx
+│  │     ├─ item.tsx
+│  │     ├─ kbd.tsx
+│  │     ├─ label.tsx
+│  │     ├─ menubar.tsx
+│  │     ├─ navigation-menu.tsx
+│  │     ├─ pagination.tsx
+│  │     ├─ popover.tsx
+│  │     ├─ progress.tsx
+│  │     ├─ radio-group.tsx
+│  │     ├─ resizable.tsx
+│  │     ├─ scroll-area.tsx
+│  │     ├─ select.tsx
+│  │     ├─ separator.tsx
+│  │     ├─ sheet.tsx
+│  │     ├─ sidebar.tsx
+│  │     ├─ skeleton.tsx
+│  │     ├─ slider.tsx
+│  │     ├─ sonner.tsx
+│  │     ├─ spinner.tsx
+│  │     ├─ switch.tsx
+│  │     ├─ table.tsx
+│  │     ├─ tabs.tsx
+│  │     ├─ textarea.tsx
+│  │     ├─ toggle-group.tsx
+│  │     ├─ toggle.tsx
+│  │     └─ tooltip.tsx
+│  ├─ db
+│  │  ├─ index.ts
+│  │  ├─ migrate.ts
+│  │  └─ schema
+│  │     ├─ account.ts
+│  │     ├─ enums.ts
+│  │     ├─ index.ts
+│  │     ├─ session.ts
+│  │     ├─ user.ts
+│  │     └─ verification.ts
+│  ├─ hooks
+│  │  └─ use-mobile.ts
+│  ├─ lib
+│  │  ├─ auth
+│  │  │  ├─ auth-client.ts
+│  │  │  └─ auth.ts
+│  │  └─ utils.ts
+│  └─ modules
+│     ├─ auth
+│     │  ├─ schema.ts
+│     │  ├─ types.ts
+│     │  └─ ui
+│     │     ├─ components
+│     │     │  ├─ signin-form.tsx
+│     │     │  ├─ signup-form.tsx
+│     │     │  └─ social-login.tsx
+│     │     └─ views
+│     │        ├─ signin-view.tsx
+│     │        └─ signup-view.tsx
+│     ├─ dashboard
+│     ├─ landing
+│     │  └─ ui
+│     │     ├─ components
+│     │     │  ├─ cta-section
+│     │     │  │  └─ index.tsx
+│     │     │  ├─ features-section
+│     │     │  │  └─ index.tsx
+│     │     │  ├─ hero-section
+│     │     │  │  └─ index.tsx
+│     │     │  ├─ how-it-works-section
+│     │     │  │  └─ index.tsx
+│     │     │  └─ layout
+│     │     │     ├─ footer
+│     │     │     │  └─ index.tsx
+│     │     │     ├─ header
+│     │     │     └─ index.tsx
+│     │     └─ views
+│     │        └─ landing-view.tsx
+│     └─ project
+├─ tsconfig.json
+└─ vercel.json
+
+```
