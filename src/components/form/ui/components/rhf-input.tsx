@@ -61,7 +61,7 @@ export function RHFInput<TFieldValues extends FieldValues = FieldValues>({
             {description && (
               <Tooltip>
                 <TooltipTrigger>
-                  <IconExclamationCircle className="text-muted size-4" />{" "}
+                  <IconExclamationCircle className="text-gray-400 size-4" />{" "}
                 </TooltipTrigger>
                 <TooltipContent side="top">
                   <FormDescription>{description}</FormDescription>

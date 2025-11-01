@@ -15,12 +15,35 @@ export const signupSchema = z
     email: z
       .email("Please enter a valid email address")
       .min(1, "Email is required"),
-    password: z.string().min(8, "Password should be at least 8 characters"),
-    passwordConfirm: z.string().min(8, "Password confirmation is required"),
+    password: z
+      .string()
+      .min(8, "Password must be at least 8 characters")
+      .max(100, "Password must be less than 100 characters"),
+    passwordConfirm: z.string(),
   })
   .refine((data) => data.password === data.passwordConfirm, {
-    message: "Password and its confirm don't match",
-    path: ["passwordConfirm"], // This will attach the error to the passwordConfirm field
+    message: "Passwords do not match",
+    path: ["passwordConfirm"],
   });
 
 export type SignupFormData = z.infer<typeof signupSchema>;
+
+export const forgotPasswordSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+});
+
+export type ForgotPasswordFormData = z.infer<typeof forgotPasswordSchema>;
+
+export const resetPasswordSchema = z
+  .object({
+    password: z
+      .string()
+      .min(8, "Password must be at least 8 characters")
+      .max(100, "Password must be less than 100 characters"),
+    passwordConfirm: z.string(),
+  })
+  .refine((data) => data.password === data.passwordConfirm, {
+    message: "Passwords do not match",
+    path: ["passwordConfirm"],
+  });
+export type ResetPasswordFormData = z.infer<typeof resetPasswordSchema>;
