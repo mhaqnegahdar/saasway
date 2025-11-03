@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "./theme-provider";
+import { TRPCReactProvider } from "@/trpc/client";
 
 export default function OuterProviders({
   children,
@@ -8,9 +9,11 @@ export default function OuterProviders({
 }) {
   return (
     <>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        {children}
-      </ThemeProvider>
+      <TRPCReactProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </TRPCReactProvider>
     </>
   );
 }

@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/sidebar";
 import SVGLogo from "./layout/logo";
 import Link from "next/link";
+import { Separator } from "./ui/separator";
 
 const data = {
   navMain: [
@@ -97,11 +98,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+      <div className="w-full px-2">
+        <Separator />
+      </div>
       <SidebarContent>
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
+      <div className="w-full px-2">
+        <Separator />
+      </div>
       <SidebarFooter>
         <NavUser />
       </SidebarFooter>
