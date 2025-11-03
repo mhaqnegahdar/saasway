@@ -1,5 +1,5 @@
 import { migrate } from "drizzle-orm/neon-http/migrator";
-import { db } from ".";
+import db from ".";
 
 async function runMigrations() {
   await migrate(db, { migrationsFolder: "./drizzle" });
