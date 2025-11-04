@@ -9,16 +9,12 @@ import { IconBrandGoogle } from "@tabler/icons-react";
 import { Linkedin } from "lucide-react";
 
 // Types
-import { SocialLoading, SubmitStatus } from "@/modules/auth/types";
+import { SocialLoading, SubmitStatus } from "@/modules/auth/lib/types";
 
 interface SocialLoginProps {
-  socialLoading: SocialLoading
-  setSocialLoading: React.Dispatch<
-    React.SetStateAction<SocialLoading>
-  >;
-  setSubmitStatus: React.Dispatch<
-    React.SetStateAction<SubmitStatus>
-  >;
+  socialLoading: SocialLoading;
+  setSocialLoading: React.Dispatch<React.SetStateAction<SocialLoading>>;
+  setSubmitStatus: React.Dispatch<React.SetStateAction<SubmitStatus>>;
   isAnyLoading: boolean;
 }
 

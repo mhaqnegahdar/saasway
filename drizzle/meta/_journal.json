@@ -8,6 +8,13 @@
       "when": 1761915743829,
       "tag": "0000_robust_thunderbird",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1762249738774,
+      "tag": "0001_previous_nemesis",
+      "breakpoints": true
     }
   ]
 }

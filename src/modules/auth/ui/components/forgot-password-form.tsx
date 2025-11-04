@@ -16,8 +16,8 @@ import { authClient } from "@/lib/auth/auth-client";
 import {
   ForgotPasswordFormData,
   forgotPasswordSchema,
-} from "@/modules/auth/schema";
-import { SubmitStatus } from "@/modules/auth/types";
+} from "@/modules/auth/lib/schema";
+import { SubmitStatus } from "@/modules/auth/lib/types";
 
 export default function ForgotPasswordForm() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>({

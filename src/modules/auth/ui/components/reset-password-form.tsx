@@ -17,8 +17,8 @@ import { authClient } from "@/lib/auth/auth-client";
 import {
   ResetPasswordFormData,
   resetPasswordSchema,
-} from "@/modules/auth/schema";
-import { SubmitStatus } from "@/modules/auth/types";
+} from "@/modules/auth/lib/schema";
+import { SubmitStatus } from "@/modules/auth/lib/types";
 
 export default function ResetPasswordForm() {
   const searchParams = useSearchParams();
@@ -58,7 +58,7 @@ export default function ResetPasswordForm() {
 
       setIsSuccess(true);
       setSubmitStatus({ type: null, message: "" });
-      
+
       // Redirect after 3 seconds
       setTimeout(() => router.push("/login"), 3000);
     } catch (error) {

@@ -18,13 +18,12 @@ import SocialLogin from "@/modules/auth/ui/components/social-login";
 import { authClient } from "@/lib/auth/auth-client";
 
 // Schema
-import { SigninFormData, signinSchema } from "@/modules/auth/schema";
+import { SigninFormData, signinSchema } from "@/modules/auth/lib/schema";
 
 // Types
-import { SocialLoading, SubmitStatus } from "@/modules/auth/types";
+import { SocialLoading, SubmitStatus } from "@/modules/auth/lib/types";
 
 import { Label } from "@/components/ui/label";
-
 
 export default function SigninForm() {
   const router = useRouter();
@@ -116,7 +115,10 @@ export default function SigninForm() {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <Link href="/forgot-password" className="text-sm text-primary hover:underline">
+                <Link
+                  href="/forgot-password"
+                  className="text-sm text-primary hover:underline"
+                >
                   Forgot password?
                 </Link>
               </div>

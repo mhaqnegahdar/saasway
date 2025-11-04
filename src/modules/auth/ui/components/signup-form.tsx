@@ -19,10 +19,10 @@ import SocialLogin from "@/modules/auth/ui/components/social-login";
 import { authClient } from "@/lib/auth/auth-client";
 
 // Schema
-import { SignupFormData, signupSchema } from "@/modules/auth/schema";
+import { SignupFormData, signupSchema } from "@/modules/auth/lib/schema";
 
 // Types
-import { SocialLoading, SubmitStatus } from "@/modules/auth/types";
+import { SocialLoading, SubmitStatus } from "@/modules/auth/lib/types";
 
 export default function SignupForm() {
   const router = useRouter();

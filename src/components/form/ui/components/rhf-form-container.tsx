@@ -44,8 +44,8 @@ export function RHFormContainer<
     console.log("Validation errors:", errors);
   },
   children,
-  submitText = "Submit",
-  loadingText = "Submitting...",
+  submitText,
+  loadingText,
   className = "space-y-6",
   status,
   showDebug = false,
@@ -67,22 +67,23 @@ export function RHFormContainer<
           className={className}
         >
           {children}
-
-          <Button
-            type="submit"
-            size={"lg"}
-            disabled={form.formState.isSubmitting || disabled}
-            className="w-full"
-          >
-            {form.formState.isSubmitting ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                {loadingText}
-              </>
-            ) : (
-              submitText
-            )}
-          </Button>
+          {submitText ? (
+            <Button
+              type="submit"
+              size={"lg"}
+              disabled={form.formState.isSubmitting || disabled}
+              className="w-full"
+            >
+              {form.formState.isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  {loadingText}
+                </>
+              ) : (
+                submitText
+              )}
+            </Button>
+          ) : null}
         </form>
       </Form>
 
